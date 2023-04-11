@@ -12,7 +12,9 @@ Here are some ideas to get you started:
 - 📫 How to reach me: ...
 - 😄 Pronouns: ...
 
-本地更新一些内容
+更新一些内容
 
 1. balabala...
 2. sth. 
+3. 🧑‍💻🧑‍💻🧑‍💻
+
