@@ -2,8 +2,8 @@ name: Generate Language Stats
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 每天更新一次
-  workflow_dispatch: # 允许手动触发
+    - cron: "0 0 * * *"
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -21,16 +21,15 @@ jobs:
         with:
           filename: top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-          base: ""                        # 清空基础数据，只留语言统计
-          config_transparent: yes         # 透明背景
+          base: ""                        
+          config_transparent: yes         
           config_timezone: Asia/Shanghai
           
-          # --- 核心修复区 ---
           plugin_languages: yes
-          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot  # 忽略没有意义的语言
-          plugin_languages_indepth: yes     # 深度扫描：真正去克隆你的仓库分析代码行数
-          plugin_languages_sections: most-used, recently-used # 显示最常用和最近使用的
-          plugin_languages_details: percentage # 只显示百分比
+          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot
+          plugin_languages_indepth: yes     
+          plugin_languages_sections: most-used   # <--- 这里改成了只有 most-used
+          plugin_languages_details: percentage 
           plugin_languages_limit: 5
           plugin_languages_analysis_timeout: 15
           
