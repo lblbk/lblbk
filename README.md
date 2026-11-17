@@ -34,8 +34,8 @@
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=lblbk&show_icons=true&theme=blue-green&hide_border=true)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=lblbk&layout=compact&theme=blue-green&hide_border=true)
+![GitHub Stats](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=lblbk&show_icons=true&theme=blue-green&hide_border=true)
+![Top Languages](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=lblbk&layout=compact&theme=blue-green&hide_border=true)
 
 </div>
 
