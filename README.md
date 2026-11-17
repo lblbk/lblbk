@@ -34,7 +34,7 @@
 
 <div align="center">
 
-<img src="./top-langs.svg?v=1" alt="Top Languages" />
+<img src="https://raw.githubusercontent.com/lblbk/lblbk/main/top-langs.svg" alt="Top Languages" />
 
 </div>
 
