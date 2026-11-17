@@ -1,0 +1,41 @@
+name: Generate Language Card
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate Languages Card
+        uses: lowlighter/metrics@latest
+        with:
+          filename: top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: ""
+          config_transparent: yes
+          # 开启语言插件
+          plugin_languages: yes
+          plugin_languages_indepth: yes     # 深度扫描，统计所有提交的真实代码
+          plugin_languages_limit: 6         # 最多显示 6 种语言
+          plugin_languages_sections: most-used
+          plugin_languages_details: percentage # 显示百分比
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_categories: markup, programming
+          
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add top-langs.svg
+          git commit -m "Update top languages" || exit 0
+          git push
