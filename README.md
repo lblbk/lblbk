@@ -34,7 +34,7 @@
 
 <div align="center">
 
-<img src="./top-langs.svg" alt="Top Languages" />
+<img src="./top-langs.svg?v=1" alt="Top Languages" />
 
 </div>
 
