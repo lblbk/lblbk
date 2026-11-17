@@ -1,0 +1,36 @@
+name: Generate Stats Card
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 每天自动更新一次
+  workflow_dispatch: # 允许手动触发
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      
+      # 生成并保存 Stats 卡片
+      - name: Generate GitHub Stats
+        uses: lowlighter/metrics@latest
+        with:
+          filename: github-stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: header, activity, community, repositories, metadata
+          template: classic
+          config_timezone: Asia/Shanghai
+
+      # 提交到仓库
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add github-stats.svg
+          git commit -m "Update stats card" || exit 0
+          git push
